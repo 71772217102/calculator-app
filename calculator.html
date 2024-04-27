@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>calculator</title>
+
+    <style>
+        body{
+            margin:0;
+            padding:0;
+        }
+        h1{
+            
+          text-align: center;
+          font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          text-shadow: 4px 4px 4px rgb(160, 178, 156);
+        }
+        #display{
+            position: relative;
+            left:32%;
+            margin-top: 30px;
+            padding:10px 150px ;
+           border-radius: 8px;
+           border-width: 5px;
+           background-color: greenyellow;
+           font-size: 20px;
+        }
+        #container{
+            position: relative;
+            margin-top: 5%;
+            left:27%;
+            
+        }
+        .one{
+            height:100px;
+            width:100px;
+            margin-left: 40px;
+            margin-bottom: 40px;
+            border-radius: 40px;
+            font-size: 25px;
+            background-color: lawngreen;
+        }
+         #container #dummy{
+            position: relative;
+            left:60px;
+        }
+      #two #clear{
+        position:absolute;
+        display:inline;
+        height: 100px;
+        width:100px;
+        top:45%;
+        left:10%;;
+        border-radius: 60px;
+        font-size: 20px;
+        background-color: mediumspringgreen;
+      }
+      #three #equal{
+        position: absolute;
+        display:inline;
+        right:10%;
+        top:45%;
+        height:100px;
+        width:100px;
+        border-radius:60px;
+        font-size: 20px;
+        background-color: mediumspringgreen;
+        
+      }
+
+    </style>
+</head>
+<body>
+    <h1>CALCULATOR</h1>
+    <input type="text" id="display" >
+    <div id="container">
+    <button  class="one" onclick="appendToDisplay('1')">1</button>
+    <button  class="one" onclick="appendToDisplay('2')">2</button>
+    <button  class="one" onclick="appendToDisplay('3')">3</button>
+    <button  class="one" onclick="appendToDisplay('4')">4</button>
+    <button  class="one" onclick="appendToDisplay('5')">5</button><br>
+    <button  class="one" onclick="appendToDisplay('6')">6</button>
+    <button  class="one" onclick="appendToDisplay('7')">7</button>
+    <button  class="one" onclick="appendToDisplay('8')">8</button>
+    <button  class="one" onclick="appendToDisplay('9')">9</button>
+    <button  class="one" onclick="appendToDisplay('0')">0</button><br>
+    <div id="dummy">
+    <button  class="one" onclick="appendToDisplay('+')">+</button>
+    <button  class="one" onclick="appendToDisplay('-')">-</button>
+    <button class="one"  onclick="appendToDisplay('*')">*</button>
+    <button  class="one" onclick="appendToDisplay('/')">/</button>
+    </div>
+   </div>
+   <div id="two">
+    <button id="clear" onclick="clearfunction()">clear</button>
+    <div>
+    <div id="three">
+    <button id="equal" onclick="resultfunction()">equal</button>
+    </div>
+    <script>
+        var expression=document.getElementById("display");
+        function appendToDisplay(value){
+            expression.value+=value;
+        }
+        function clearfunction(){
+            expression.value='';
+        }
+        function resultfunction()
+        {
+           try{
+            var result=eval(expression.value);
+            expression.value=result;
+           }catch(error)
+           {
+            expression.value="error";
+           }
+        }
+    </script>
+
+</body>
+</html>
